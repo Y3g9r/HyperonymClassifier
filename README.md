@@ -24,3 +24,7 @@
 
 ![](./embeddings_research/mouse_2.png)
 
+Вектора представляются суммой с последних 4 слоёв
+
+![](./embeddings_research/mouse_4.png)
+
