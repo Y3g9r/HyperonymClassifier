@@ -73,11 +73,11 @@ self.sigm = torch.nn.Sigmoid()
 
 ![](./learning_research/exp_3.png)
 
-### Измениние в данных:
+## Измениние в данных далее
 
 ### Определения и примеры под лейблом 1 остаются исходными
 ### примеры под лейблом 0 заменяются случайным образом на 1 из 10
-### заранее заданных предложений с использованием определение из лейбла 1
+### заранее заданных с использованием определения из лейбла 1
 
 ### Пример:
 ### лейбл 1:
@@ -95,7 +95,7 @@ learning-rate: 0.0001
 
 Число эпох: 10  
 
-Размер данных: 4800  
+Размер данных: 1200  
 Размер батча: 4  
 
 Fine-tuning:  
@@ -109,6 +109,87 @@ self.Linear = torch.nn.Linear(32, 1)
 self.tanh = torch.nn.Tanh()  
 self.sigm = torch.nn.Sigmoid()  
 
-Время обучения: ~12 часов  
+Время обучения: ~30 минут  
 
 ![](./learning_research/exp_4.png)
+
+## Опыт 5
+
+### замена лейбла 0: 70 %
+### 30% лейбла 0 не изменяются
+
+learning-rate: 0.0001  
+
+Число эпох: 10  
+
+Размер данных: 1200  
+Размер батча: 4  
+
+Fine-tuning:  
+self.example_linear_1 = torch.nn.Linear(1024, 128)  
+self.example_linear_2 = torch.nn.Linear(128, 32)  
+
+self.def_linear_1 = torch.nn.Linear(1024, 128)  
+self.def_linear_2 = torch.nn.Linear(128, 32)  
+
+self.Linear = torch.nn.Linear(32, 1)  
+self.tanh = torch.nn.Tanh()  
+self.sigm = torch.nn.Sigmoid()  
+
+Время обучения: ~30 минут  
+
+![](./learning_research/exp_5.png)
+
+## Опыт 6
+
+### замена лейбла 0: 70 %
+### 30% лейбла 0 не изменяются
+
+learning-rate: 0.00001  
+
+Число эпох: 10  
+
+Размер данных: 1200  
+Размер батча: 4  
+
+Fine-tuning:  
+self.example_linear_1 = torch.nn.Linear(1024, 128)  
+self.example_linear_2 = torch.nn.Linear(128, 32)  
+
+self.def_linear_1 = torch.nn.Linear(1024, 128)  
+self.def_linear_2 = torch.nn.Linear(128, 32)  
+
+self.Linear = torch.nn.Linear(32, 1)  
+self.tanh = torch.nn.Tanh()  
+self.sigm = torch.nn.Sigmoid()  
+
+Время обучения: ~30 минут  
+
+![](./learning_research/exp_6.png)
+
+## Опыт 7
+
+### замена лейбла 0: 80 %
+### 20% лейбла 0 не изменяются
+
+learning-rate: 0.0001  
+
+Число эпох: 10  
+
+Размер данных: 1200  
+Размер батча: 4  
+
+Fine-tuning:  
+self.example_linear_1 = torch.nn.Linear(1024, 128)  
+self.example_linear_2 = torch.nn.Linear(128, 32)  
+
+self.def_linear_1 = torch.nn.Linear(1024, 128)  
+self.def_linear_2 = torch.nn.Linear(128, 32)  
+
+self.Linear = torch.nn.Linear(32, 1)  
+self.tanh = torch.nn.Tanh()  
+self.sigm = torch.nn.Sigmoid()  
+
+Время обучения: ~30 минут  
+
+![](./learning_research/exp_7.png)
