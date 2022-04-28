@@ -26,5 +26,6 @@
 
 Вектора представляются суммой с последних 4 слоёв
 
-![](./embeddings_research/mouse_4.png)
+исследование обучения модели: https://github.com/Y3g9r/HyperonymClassifier/blob/main/bert_4_layers_sum_research.md
 
+![](./embeddings_research/mouse_4.png)

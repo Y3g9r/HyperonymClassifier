@@ -1,5 +1,4 @@
-# Исследование обучения модели, в которой эмбединги представляются суммой
-# с последних 4 слоёв
+# Исследование обучения модели, в которой эмбединги представляются суммой с последних 4 слоёв
 
 ## Опыт 1
 
@@ -11,15 +10,15 @@ learning-rate: 0.0001
 Размер батча: 4
 
 Fine-tuning:
-self.example_linear_1 = torch.nn.Linear(1024, 1024)
-self.example_linear_2 = torch.nn.Linear(1024, 1024)
+self.example_linear_1 = torch.nn.Linear(1024, 1024)  
+self.example_linear_2 = torch.nn.Linear(1024, 1024)  
 
-self.def_linear_1 = torch.nn.Linear(1024, 1024)
-self.def_linear_2 = torch.nn.Linear(1024, 1024)
+self.def_linear_1 = torch.nn.Linear(1024, 1024)  
+self.def_linear_2 = torch.nn.Linear(1024, 1024)  
 
-self.Linear = torch.nn.Linear(1024, 1)
-self.tanh = torch.nn.Tanh()
-self.sigm = torch.nn.Sigmoid()
+self.Linear = torch.nn.Linear(1024, 1)  
+self.tanh = torch.nn.Tanh()  
+self.sigm = torch.nn.Sigmoid()  
 
 ![](./learning_research/exp_1.png)
 
