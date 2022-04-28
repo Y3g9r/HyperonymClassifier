@@ -54,7 +54,7 @@ learning-rate: 0.0001
 Размер данных: 1600  
 Размер батча: 4  
 
-Fine-tuning:
+Fine-tuning:  
 self.example_linear_1 = torch.nn.Linear(1024, 128)  
 self.example_linear_2 = torch.nn.Linear(128, 32)  
 
