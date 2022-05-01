@@ -284,6 +284,10 @@ self.sigm = torch.nn.Sigmoid()
 
 ![](./learning_research/exp_10.png)
 
+Параметры обучения:  
+
+lr = 0.0001  
+
 
 Fine-tuning:  
 self.example_linear_1 = torch.nn.Linear(1024, 128)  
@@ -308,6 +312,10 @@ self.sigm = torch.nn.Sigmoid()
 лейбл 0 > 80.0  
 
 ![](./learning_research/exp_11.png)
+
+Параметры обучения:  
+
+lr = 0.0001  
 
 
 Fine-tuning:  
@@ -334,6 +342,10 @@ self.sigm = torch.nn.Sigmoid()
 
 ![](./learning_research/exp_12.png)
 
+Параметры обучения:  
+
+lr = 0.0001  
+
 
 Fine-tuning:  
 self.example_linear_1 = torch.nn.Linear(1024, 128)  
@@ -348,3 +360,32 @@ self.tanh = torch.nn.Tanh()
 self.sigm = torch.nn.Sigmoid()  
 
 ![](./learning_research/exp_121.png)
+
+## Эксперимент 4
+
+Фильтрация по расстоянию:  
+
+лейбл 1 < 75.0  
+
+лейбл 0 > 80.0  
+
+![](./learning_research/exp_12.png)
+
+Параметры обучения:  
+
+lr = 0.0007  
+
+
+Fine-tuning:  
+self.example_linear_1 = torch.nn.Linear(1024, 128)  
+self.example_linear_2 = torch.nn.Linear(128, 32)  
+
+self.def_linear_1 = torch.nn.Linear(1024, 128)  
+self.def_linear_2 = torch.nn.Linear(128, 32)  
+
+self.Linear = torch.nn.Linear(32, 1)  
+self.cos = torch.nn.CosineSimilarity(1)  
+self.tanh = torch.nn.Tanh()  
+self.sigm = torch.nn.Sigmoid()  
+
+![](./learning_research/exp_1212.png)
