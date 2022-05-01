@@ -76,7 +76,7 @@ self.sigm = torch.nn.Sigmoid()
 ## Измениния в данных
 
 *Определения и примеры под лейблом 1 остаются исходными*  
-*примеры под лейблом 0 заменяются случайным образом на 1 из 10*  
+*примеры под лейблом 0 заменяются случайным образом на 1 из 10*
 *заранее заданных с использованием определения из лейбла 1*  
 
 *Пример:*  
@@ -197,7 +197,7 @@ self.sigm = torch.nn.Sigmoid()
 ## Измениния в данных
 
 *Определения и примеры под лейблом 1 остаются исходными*  
-*примеры под лейблом 0 заменяются на примеры из лейбла 1*  
+*примеры под лейблом 0 заменяются на примеры из лейбла 1*
 *с противоположным индексом в массиве (с соответствующей заменой определения)*  
 
 
@@ -263,3 +263,88 @@ self.sigm = torch.nn.Sigmoid()
 Время обучения: ~30 минут  
 
 ![](./learning_research/exp_9.png)
+
+
+## Измениния в данных
+
+*Эмбединги примеров и определений сводятся к 2-мерному пространству через PCA*  
+
+*Вычисляется расстояние для лейбла 1 и лейбла 0 по отдельности*  
+
+*Для лейбла 1 и 0 устанавливаются соответствующие границы, что позволяет*
+*фильтровать выборку*  
+
+## Эксперимент 1
+
+Фильтрация по расстоянию:  
+
+лейбл 1 < 75.0  
+
+лейбл 0 > 75.0  
+
+![](./learning_research/exp_10.png)
+
+
+Fine-tuning:  
+self.example_linear_1 = torch.nn.Linear(1024, 128)  
+self.example_linear_2 = torch.nn.Linear(128, 32)  
+
+self.def_linear_1 = torch.nn.Linear(1024, 128)  
+self.def_linear_2 = torch.nn.Linear(128, 32)  
+
+self.Linear = torch.nn.Linear(32, 1)  
+self.cos = torch.nn.CosineSimilarity(1)  
+self.tanh = torch.nn.Tanh()  
+self.sigm = torch.nn.Sigmoid()  
+
+![](./learning_research/exp_101.png)
+
+## Эксперимент 2
+
+Фильтрация по расстоянию:  
+
+лейбл 1 < 70.0  
+
+лейбл 0 > 80.0  
+
+![](./learning_research/exp_11.png)
+
+
+Fine-tuning:  
+self.example_linear_1 = torch.nn.Linear(1024, 128)  
+self.example_linear_2 = torch.nn.Linear(128, 32)  
+
+self.def_linear_1 = torch.nn.Linear(1024, 128)  
+self.def_linear_2 = torch.nn.Linear(128, 32)  
+
+self.Linear = torch.nn.Linear(32, 1)  
+self.cos = torch.nn.CosineSimilarity(1)  
+self.tanh = torch.nn.Tanh()  
+self.sigm = torch.nn.Sigmoid()  
+
+![](./learning_research/exp_111.png)
+
+## Эксперимент 3
+
+Фильтрация по расстоянию:  
+
+лейбл 1 < 75.0  
+
+лейбл 0 > 80.0  
+
+![](./learning_research/exp_12.png)
+
+
+Fine-tuning:  
+self.example_linear_1 = torch.nn.Linear(1024, 128)  
+self.example_linear_2 = torch.nn.Linear(128, 32)  
+
+self.def_linear_1 = torch.nn.Linear(1024, 128)  
+self.def_linear_2 = torch.nn.Linear(128, 32)  
+
+self.Linear = torch.nn.Linear(32, 1)  
+self.cos = torch.nn.CosineSimilarity(1)  
+self.tanh = torch.nn.Tanh()  
+self.sigm = torch.nn.Sigmoid()  
+
+![](./learning_research/exp_121.png)
