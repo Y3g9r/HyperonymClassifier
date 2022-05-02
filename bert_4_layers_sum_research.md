@@ -115,17 +115,21 @@ self.sigm = torch.nn.Sigmoid()
 
 ## Эксперимент 2
 
-### замена лейбла 0: 70 %
-### 30% лейбла 0 не изменяются
+*замена лейбла 0: 70 %*  
+*30% лейбла 0 не изменяются*  
+
+### Параметры обучения:
 
 learning-rate: 0.0001  
 
 Число эпох: 10  
 
+### Управление выборкой:  
+
 Размер данных: 1200  
 Размер батча: 4  
 
-Fine-tuning:  
+### Fine-tuning:  
 self.example_linear_1 = torch.nn.Linear(1024, 128)  
 self.example_linear_2 = torch.nn.Linear(128, 32)  
 
@@ -140,14 +144,18 @@ self.sigm = torch.nn.Sigmoid()
 
 ![](./learning_research/exp_5.png)
 
-## Эксперимент 3
+## Эксперимент 3  
 
-### замена лейбла 0: 70 %
-### 30% лейбла 0 не изменяются
+*замена лейбла 0: 70 %*  
+*30% лейбла 0 не изменяются*  
+
+### Параметры обучения:
 
 learning-rate: 0.00001  
 
 Число эпох: 10  
+
+### Управление выборкой:  
 
 Размер данных: 1200  
 Размер батча: 4  
@@ -169,17 +177,21 @@ self.sigm = torch.nn.Sigmoid()
 
 ## Эксперимент 4
 
-### замена лейбла 0: 80 %
-### 20% лейбла 0 не изменяются
+*замена лейбла 0: 80 %*  
+*20% лейбла 0 не изменяются*  
+
+### Параметры обучения:  
 
 learning-rate: 0.0001  
 
 Число эпох: 10  
 
+### Управление выборкой:  
+
 Размер данных: 1200  
 Размер батча: 4  
 
-Fine-tuning:  
+### Fine-tuning:  
 self.example_linear_1 = torch.nn.Linear(1024, 128)  
 self.example_linear_2 = torch.nn.Linear(128, 32)  
 
@@ -216,16 +228,18 @@ self.sigm = torch.nn.Sigmoid()
 *Контекстный пример: Эльбрус грызёт зёрна и остерегается кота*  
 *Определение: самая высокая горная вершина России и Европы*  
 
-## Эксперимент 1
+## Эксперимент 1  
 
 learning-rate: 0.0001  
 
 Число эпох: 10  
 
+### Управление выборкой:  
+
 Размер данных: 1200  
 Размер батча: 4  
 
-Fine-tuning:  
+### Fine-tuning:  
 self.example_linear_1 = torch.nn.Linear(1024, 128)  
 self.example_linear_2 = torch.nn.Linear(128, 32)  
 
@@ -242,14 +256,18 @@ self.sigm = torch.nn.Sigmoid()
 
 ## Эксперимент 2
 
+### Параметры обучения:
+
 learning-rate: 0.0001  
 
 Число эпох: 10  
 
+### Управление выборкой:
+
 Размер данных: 1200  
 Размер батча: 4  
 
-Fine-tuning:  
+### Fine-tuning:  
 self.example_linear_1 = torch.nn.Linear(1024, 512)  
 self.example_linear_2 = torch.nn.Linear(512, 128)  
 
@@ -276,7 +294,7 @@ self.sigm = torch.nn.Sigmoid()
 
 ## Эксперимент 1
 
-Фильтрация по расстоянию:  
+### Фильтрация по расстоянию:  
 
 лейбл 1 < 75.0  
 
@@ -284,12 +302,12 @@ self.sigm = torch.nn.Sigmoid()
 
 ![](./learning_research/exp_10.png)
 
-Параметры обучения:  
+### Параметры обучения:  
 
 lr = 0.0001  
 
 
-Fine-tuning:  
+### Fine-tuning:  
 self.example_linear_1 = torch.nn.Linear(1024, 128)  
 self.example_linear_2 = torch.nn.Linear(128, 32)  
 
@@ -305,7 +323,7 @@ self.sigm = torch.nn.Sigmoid()
 
 ## Эксперимент 2
 
-Фильтрация по расстоянию:  
+### Фильтрация по расстоянию:  
 
 лейбл 1 < 70.0  
 
@@ -313,12 +331,12 @@ self.sigm = torch.nn.Sigmoid()
 
 ![](./learning_research/exp_11.png)
 
-Параметры обучения:  
+### Параметры обучения:  
 
 lr = 0.0001  
 
 
-Fine-tuning:  
+### Fine-tuning:  
 self.example_linear_1 = torch.nn.Linear(1024, 128)  
 self.example_linear_2 = torch.nn.Linear(128, 32)  
 
@@ -334,7 +352,7 @@ self.sigm = torch.nn.Sigmoid()
 
 ## Эксперимент 3
 
-Фильтрация по расстоянию:  
+### Фильтрация по расстоянию:  
 
 лейбл 1 < 75.0  
 
@@ -342,12 +360,12 @@ self.sigm = torch.nn.Sigmoid()
 
 ![](./learning_research/exp_12.png)
 
-Параметры обучения:  
+### Параметры обучения:  
 
 lr = 0.0001  
 
 
-Fine-tuning:  
+### Fine-tuning:  
 self.example_linear_1 = torch.nn.Linear(1024, 128)  
 self.example_linear_2 = torch.nn.Linear(128, 32)  
 
@@ -363,7 +381,7 @@ self.sigm = torch.nn.Sigmoid()
 
 ## Эксперимент 4
 
-Фильтрация по расстоянию:  
+### Фильтрация по расстоянию:  
 
 лейбл 1 < 75.0  
 
@@ -371,12 +389,12 @@ self.sigm = torch.nn.Sigmoid()
 
 ![](./learning_research/exp_12.png)
 
-Параметры обучения:  
+### Параметры обучения:  
 
 lr = 0.0007  
 
 
-Fine-tuning:  
+### Fine-tuning:  
 self.example_linear_1 = torch.nn.Linear(1024, 128)  
 self.example_linear_2 = torch.nn.Linear(128, 32)  
 
