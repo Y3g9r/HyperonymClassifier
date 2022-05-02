@@ -483,7 +483,7 @@ self.sigm = torch.nn.Sigmoid()
 ![](./learning_research/exp_1214.png)
 
 
-## Эксперимент 4.6  
+## Эксперимент 4.7  
 
 ### Фильтрация по расстоянию:  
 
@@ -491,7 +491,7 @@ self.sigm = torch.nn.Sigmoid()
 
 лейбл 0 > 82.0  
 
-![](./learning_research/exp_12.png)
+![](./learning_research/exp_13.png)
 
 ### Параметры обучения:  
 
@@ -510,4 +510,4 @@ self.cos = torch.nn.CosineSimilarity(1)
 self.tanh = torch.nn.Tanh()  
 self.sigm = torch.nn.Sigmoid()  
 
-![](./learning_research/exp_1214.png)
+![](./learning_research/exp_131.png)
