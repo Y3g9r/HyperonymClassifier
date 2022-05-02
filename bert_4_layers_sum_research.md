@@ -28,7 +28,7 @@ self.sigm = torch.nn.Sigmoid()
 
 ![](./learning_research/exp_1.png)
 
-## Эксперимент 2.1  
+## Эксперимент 1.2  
 
 ### Параметры обучения:  
 
@@ -57,7 +57,7 @@ self.sigm = torch.nn.Sigmoid()
 
 ![](./learning_research/exp_2.png)
 
-## Эксперимент 3.1  
+## Эксперимент 1.3  
 
 ### Параметры обучения:  
 
