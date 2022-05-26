@@ -13,4 +13,3 @@ class hyperonym_handler:
         for word in splited_sentence:
             new_word = re.sub("[^А-Яа-я]","",word)
             normalazed_words.append(self.morph.parse(new_word)[0].normal_form)
-        print(normalazed_words)
