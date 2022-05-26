@@ -19,7 +19,14 @@ class Neo4jClient:
     @staticmethod
     def __is_word_exist(tx, the_word):
         # single return true if we have at least 1 element
-        return tx.run("MATCH (w:Word {name: $the_word}) RETURN w.name", the_word=the_word).single()
+        the_word = the_word + ' ' + '\d*'
+        return tx.run("MATCH (w:Word) WHERE w.name=~$the_word  RETURN w.name", the_word=the_word).single()
+
+    def get_definitions(self, the_word):
+        the_word = the_word + ' ' + '\d*'
+        result = self.session.run("MATCH (w:Word) WHERE w.name=~$the_word RETURN w.definition as word_def", the_word=the_word)
+        results = [record['word_def'] for record in result]
+        print(results)
 
 class hyperonym_handler:
 
@@ -29,9 +36,17 @@ class hyperonym_handler:
         self.db_client = Neo4jClient('bolt://192.168.85.128:7687', 'neo4j', 'newPassword')
 
     def sentence_parse(self, sentence):
-        print(self.db_client.is_word_exist('мышь 0'))
+        print(self.db_client.get_definitions('мышь'))
         splited_sentence = sentence.split(' ')
         normalazed_words = []
+
         for word in splited_sentence:
             new_word = re.sub("[^А-Яа-я]","",word)
             normalazed_words.append(self.morph.parse(new_word)[0].normal_form)
+
+        for word in normalazed_words:
+            if self.db_client.is_word_exist(word):
+                current_word_definition = self.db_client.get_definitions(word)
+                for definition in current_word_definition:
+
+
