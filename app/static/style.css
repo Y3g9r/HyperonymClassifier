@@ -2,3 +2,22 @@ form {
     text-align: center;
     margin-top: 170px;
 }
+
+h1 {
+    font-size:68px;
+}
+
+.form-control {
+    font-size:28px;
+}
+
+input {
+font-size:28px;
+}
+
+textarea {
+        overflow-y: scroll;
+        width: 675px;
+        height: 500px;
+        resize: none;
+}
