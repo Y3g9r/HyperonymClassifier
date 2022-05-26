@@ -1,12 +1,15 @@
-from flask import render_template, flash, redirect
+from flask import render_template, redirect
 from app import app
+from HyperonymClassifier import Hyperonym_handler as hh
 from .forms import LoginForm
+
+NERUAL_HANDLER = hh.hyperonym_handler()
 
 @app.route('/index', methods = ['GET', 'POST'])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        #flash('Login requested for OpenID="' + form.openid.data + '", remember_me=' + str(form.remember_me.data))
+        NERUAL_HANDLER.sentence_parse(form.openid.data)
         return redirect('/index')
     return render_template('index.html',
         title = 'Hyperonyms page',
