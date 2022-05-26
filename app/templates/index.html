@@ -1,8 +1,16 @@
-<h1>GET HYPERONYMS</h1>
-<form action="" method="post" name="login">
-    {{ form.hidden_tag() }}
-    <p>
-        {{form.openid(size=40)}}
-        <input type="submit" value="Get!">
-    </p>
-</form>
+<html>
+  <head>
+    <title>Page of getting hyperonyms</title>
+    <link rel="stylesheet" href="../static/style.css">
+  </head>
+  <body>
+    <form action="" method="post" name="data">
+        <h1>GET HYPERONYMS</h1>
+        {{ form.hidden_tag() }}
+        <p>
+            {{form.openid(size=40)}}
+            <input type="submit" value="Get!">
+        </p>
+    </form>
+  </body>
+</html>
