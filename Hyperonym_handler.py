@@ -1,6 +1,7 @@
 import re
 import pymorphy2
 from neo4j import GraphDatabase
+from HyperonymNN import predict
 
 class Neo4jClient:
 
@@ -26,7 +27,7 @@ class Neo4jClient:
         the_word = the_word + ' ' + '\d*'
         result = self.session.run("MATCH (w:Word) WHERE w.name=~$the_word RETURN w.definition as word_def", the_word=the_word)
         results = [record['word_def'] for record in result]
-        print(results)
+        return results
 
 class hyperonym_handler:
 
@@ -49,7 +50,10 @@ class hyperonym_handler:
                current_word_definition = self.db_client.get_definitions(normalazed_words[i])
                data_for_nn = []
                for definition in current_word_definition:
-                    data_for_nn.append([[sentence_mapping(i)], [sentence], [definition]])
+                    data_for_nn.append([[sentence_mapping[i]], [sentence], ["EMPTY"], definition, [3]])
+               nn_predicted = predict(data_for_nn)
+               analyzed_information.append([normalazed_words[i], current_word_definition[nn_predicted.index(max(nn_predicted))][0]])
+        return analyzed_information
 
     def __sentence_handler(self, sentence):
         word_flag = True
