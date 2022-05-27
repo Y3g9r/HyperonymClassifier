@@ -35,18 +35,28 @@ class hyperonym_handler:
         self.morph = pymorphy2.MorphAnalyzer()
         self.db_client = Neo4jClient('bolt://192.168.85.128:7687', 'neo4j', 'newPassword')
 
+
     def sentence_parse(self, sentence):
-        print(self.db_client.get_definitions('мышь'))
+        sentence_mapping = self.__sentence_handler(sentence)
         splited_sentence = sentence.split(' ')
         normalazed_words = []
+        print(sentence_mapping)
 
         for word in splited_sentence:
             new_word = re.sub("[^А-Яа-я]","",word)
             normalazed_words.append(self.morph.parse(new_word)[0].normal_form)
 
-        for word in normalazed_words:
-            if self.db_client.is_word_exist(word):
-                current_word_definition = self.db_client.get_definitions(word)
-                for definition in current_word_definition:
+        #for word in normalazed_words:
+        #    if self.db_client.is_word_exist(word):
+        #        current_word_definition = self.db_client.get_definitions(word)
+        #        for definition in current_word_definition:
+
+    def __sentence_handler(self, sentence):
+        temp_new_sentence = sentence.split(' ')
+        new_sentence = []
+        for splited_word in temp_new_sentence:
+            temp_split = splited_word.split('!')
+            for sub_temp_split in temp_split:
+                new_sentence.append(sub_temp_split)
 
 
