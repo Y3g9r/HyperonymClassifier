@@ -38,25 +38,32 @@ class hyperonym_handler:
 
     def sentence_parse(self, sentence):
         sentence_mapping = self.__sentence_handler(sentence)
-        splited_sentence = sentence.split(' ')
         normalazed_words = []
-        print(sentence_mapping)
+        analyzed_information = []
 
-        for word in splited_sentence:
-            new_word = re.sub("[^А-Яа-я]","",word)
-            normalazed_words.append(self.morph.parse(new_word)[0].normal_form)
+        for mapping in sentence_mapping:
+            normalazed_words.append(self.morph.parse(sentence[mapping[0]:mapping[1]])[0].normal_form)
 
-        #for word in normalazed_words:
-        #    if self.db_client.is_word_exist(word):
-        #        current_word_definition = self.db_client.get_definitions(word)
-        #        for definition in current_word_definition:
+        for i in range(len(normalazed_words)):
+           if self.db_client.is_word_exist(normalazed_words[i]):
+               current_word_definition = self.db_client.get_definitions(normalazed_words[i])
+               data_for_nn = []
+               for definition in current_word_definition:
+                    data_for_nn.append([[sentence_mapping(i)], [sentence], [definition]])
 
     def __sentence_handler(self, sentence):
-        temp_new_sentence = sentence.split(' ')
-        new_sentence = []
-        for splited_word in temp_new_sentence:
-            temp_split = splited_word.split('!')
-            for sub_temp_split in temp_split:
-                new_sentence.append(sub_temp_split)
-
-
+        word_flag = True
+        mapping = []
+        first_pos = 0
+        second_pos = 0
+        sentence = sentence + ' '
+        for symbol in range(len(sentence)):
+            if sentence[symbol].isalpha() and not word_flag:
+                word_flag = True
+                first_pos = symbol
+            else:
+                if word_flag and not sentence[symbol].isalpha():
+                    second_pos = symbol
+                    mapping.append((first_pos, second_pos))
+                    word_flag = False
+        return mapping
